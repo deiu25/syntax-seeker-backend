@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -27,7 +26,7 @@ app.use("/api/posts", postRouter);
 app.use("/api/content", genericRouter);
 app.get("/", (req, res) => { res.send("Home Page"); });
 
-app.use('/uploads', express.static('C:/mnt/myappdata/uploads'));
+app.use('/uploads', express.static('/mnt/myappdata/uploads'));
 
 // Error handler middleware
 app.use(errorHandler);
