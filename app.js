@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://syntaxseeker.com"],
+    origin: ["https://syntaxseeker.com", "https://www.syntaxseeker.com"],
     credentials: true,
   })
 );
