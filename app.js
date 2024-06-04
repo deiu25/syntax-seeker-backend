@@ -15,10 +15,18 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://syntaxseeker.com", "https://www.syntaxseeker.com"],
+    origin: function (origin, callback) {
+      const allowedOrigins = ["https://syntaxseeker.com", "https://www.syntaxseeker.com"];
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
+
 
 // Routes
 app.use("/api/users", userRoute);
